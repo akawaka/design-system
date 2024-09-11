@@ -1,10 +1,10 @@
 // src/stories/Input.stories.js
 import { fn } from "@storybook/test";
-import { Input } from "./Input";
+import { Input } from "../../components/forms/Input";
 
 // Default export to define metadata for the story
 export default {
-  title: "Design System/Input",
+  title: "Design System/Forms/Input",
   component: Input,
   parameters: {
     layout: "centered",

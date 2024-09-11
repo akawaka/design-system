@@ -1,9 +1,9 @@
 // src/stories/Typography.stories.js
-import { Typography } from "./Typography"; // Adjust the import path as necessary
+import { Typography } from "../../components/typography/Typography";
 
 // Default export to define metadata for the story
 export default {
-  title: "Design System/Typography",
+  title: "Design System/Typography/Typography",
   component: Typography,
   parameters: {
     layout: "centered",

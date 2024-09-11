@@ -1,10 +1,10 @@
 // src/stories/ProductCard.stories.js
 import { fn } from "@storybook/test";
-import { ProductCard } from "./ProductCard";
+import { ProductCard } from "../../components/cards/ProductCard";
 
 // Default export to define metadata for the story
 export default {
-  title: "Design System/ProductCard",
+  title: "Design System/Cards/ProductCard",
   component: ProductCard,
   parameters: {
     layout: "centered",
