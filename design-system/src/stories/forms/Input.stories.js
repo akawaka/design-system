@@ -1,8 +1,8 @@
-// src/stories/Input.stories.js
 import { fn } from "@storybook/test";
 import { Input } from "../../components/forms/Input";
+import EnvelopeIcon from "../../components/icons/EnvelopeIcon.jsx";
+import QuestionIcon from "../../components/icons/QuestionIcon.jsx";
 
-// Default export to define metadata for the story
 export default {
   title: "Design System/Forms/Input",
   component: Input,
@@ -11,42 +11,92 @@ export default {
   },
   tags: ["autodocs"],
   argTypes: {
-    size: { control: "select", options: ["small", "medium", "large"] },
-    placeholder: { control: "text" },
-    value: { control: "text" },
+    size: {
+      control: { type: "select", options: ["small", "medium", "large"] },
+    },
+    leadingIcon: {
+      control: { type: "none" },
+    },
+    trailingIcon: {
+      control: { type: "none" },
+    },
   },
-  args: { onChange: fn() }, // Use `fn` to simulate change handler for input
+  args: { onChange: fn() },
 };
 
-// Individual stories for different input variants
-export const Small = {
+export const Default = {
   args: {
-    size: "small",
-    placeholder: "Small input",
-    value: "",
-  },
-};
-
-export const Medium = {
-  args: {
-    size: "medium",
-    placeholder: "Medium input",
-    value: "",
+    placeholder: "Enter text...",
   },
 };
 
-export const Large = {
+export const WithLabel = {
   args: {
-    size: "large",
-    placeholder: "Large input",
-    value: "",
+    label: "Username",
+    placeholder: "Enter your username...",
   },
 };
 
-export const Filled = {
+export const WithLabelAndHelpText = {
   args: {
-    size: "medium",
-    placeholder: "Filled input",
-    value: "Sample text",
+    label: "Email",
+    helpText: "We'll never share your email with anyone else.",
+    placeholder: "Enter your email...",
+  },
+};
+
+export const WithValidationError = {
+  args: {
+    label: "Password",
+    placeholder: "Enter your password...",
+    error: "Password must be at least 8 characters.",
+  },
+};
+
+export const Disabled = {
+  args: {
+    label: "Disabled Input",
+    placeholder: "This field is disabled",
+    disabled: true,
+  },
+};
+
+export const WithHiddenLabel = {
+  args: {
+    label: "Hidden Label",
+    placeholder: "Enter something...",
+    hiddenLabel: true,
+  },
+};
+
+export const WithCornerHint = {
+  args: {
+    label: "Username",
+    cornerHint: "Optional",
+    placeholder: "Enter your username...",
+  },
+};
+
+export const WithLeadingIcon = {
+  args: {
+    label: "Search",
+    placeholder: "Search...",
+    leadingIcon: EnvelopeIcon,
+  },
+};
+
+export const WithTrailingIcon = {
+  args: {
+    label: "Username",
+    placeholder: "Enter your username...",
+    trailingIcon: QuestionIcon,
+  },
+};
+
+export const WithOverlappingLabel = {
+  args: {
+    label: "Full Name",
+    overlappingLabel: "Enter your full name",
+    placeholder: "John Doe",
   },
 };

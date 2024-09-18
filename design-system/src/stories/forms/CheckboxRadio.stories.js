@@ -30,7 +30,9 @@ export const Checkbox = {
   args: {
     type: "checkbox",
     label: "Check me",
-    checked: false,
+    id: "comments",
+    text: "Get notified when someones posts a comment on a posting.",
+    checked: null,
     disabled: false,
   },
 };
@@ -39,7 +41,9 @@ export const RadioButton = {
   args: {
     type: "radio",
     label: "Select me",
-    checked: false,
+    id: "comments",
+    text: "Get notified when someones posts a comment on a posting.",
+    checked: null,
     disabled: false,
   },
 };
