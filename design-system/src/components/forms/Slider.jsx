@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
  * Slider component for range and discrete step sliders.
  */
 export const Slider = ({ min, max, step, value, className, ...props }) => {
-  const baseStyle = 'slider w-full';
+  const baseStyle = 'w-full';
 
   return (
     <input

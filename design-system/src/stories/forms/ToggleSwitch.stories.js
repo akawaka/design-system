@@ -1,5 +1,5 @@
-// src/stories/forms/ToggleSwitch.stories.js
 import { ToggleSwitch } from "../../components/forms/ToggleSwitch";
+import { fn } from "@storybook/test";
 
 export default {
   title: "Design System/Forms/ToggleSwitch",
@@ -17,6 +17,9 @@ export default {
       control: "boolean",
       description: "Whether the switch is disabled",
     },
+  },
+  args: {
+    onChange: fn(), // Action to handle the toggle switch in Storybook
   },
 };
 

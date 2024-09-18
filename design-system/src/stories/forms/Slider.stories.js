@@ -18,18 +18,9 @@ export default {
 
 export const RangeSlider = {
   args: {
-    min: 0,
-    max: 100,
-    step: 1,
-    value: 50,
-  },
-};
-
-export const DiscreteSteps = {
-  args: {
-    min: 0,
-    max: 10,
-    step: 1,
-    value: 5,
+    min: null,
+    max: null,
+    step: null,
+    value: null,
   },
 };
