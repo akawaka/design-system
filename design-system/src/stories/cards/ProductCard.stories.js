@@ -16,10 +16,9 @@ export default {
     description: { control: "text" },
     price: { control: "text" },
   },
-  args: { onAddToCart: fn() }, // Use `fn` to simulate the Add to Cart action
+  args: { onAddToCart: fn() },
 };
 
-// Individual story for a fake product card
 export const Default = {
   args: {
     image: "https://via.placeholder.com/300",

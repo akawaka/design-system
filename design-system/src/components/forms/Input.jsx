@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
 
-/**
- * Input field component for user input
- */
 export const Input = ({
   size,
   placeholder,
@@ -55,61 +52,19 @@ export const Input = ({
 };
 
 Input.propTypes = {
-  /**
-   * How large should the input be?
-   */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
-  /**
-   * Placeholder text for the input field
-   */
   placeholder: PropTypes.string,
-  /**
-   * Value of the input field
-   */
   value: PropTypes.string,
-  /**
-   * Optional change handler
-   */
   onChange: PropTypes.func,
-  /**
-   * Input label
-   */
   label: PropTypes.string,
-  /**
-   * Help text below the input field
-   */
   helpText: PropTypes.string,
-  /**
-   * Validation error message
-   */
   error: PropTypes.string,
-  /**
-   * Disabled state
-   */
   disabled: PropTypes.bool,
-  /**
-   * Hidden label for accessibility
-   */
   hiddenLabel: PropTypes.bool,
-  /**
-   * Hint text displayed in the corner of the input
-   */
   cornerHint: PropTypes.string,
-  /**
-   * Leading icon component
-   */
   leadingIcon: PropTypes.elementType,
-  /**
-   * Trailing icon component
-   */
   trailingIcon: PropTypes.elementType,
-  /**
-   * Inset label inside the input
-   */
   insetLabel: PropTypes.string,
-  /**
-   * Overlapping label that floats above the input
-   */
   overlappingLabel: PropTypes.string,
 };
 

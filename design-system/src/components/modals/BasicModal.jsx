@@ -1,9 +1,6 @@
 // src/components/modals/BasicModal.jsx
 import PropTypes from 'prop-types';
 
-/**
- * BasicModal component for displaying a modal with title, content, and a close button.
- */
 export const BasicModal = ({ title, content, onClose, className, ...props }) => {
   const baseStyle = 'fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center text-black';
   const modalStyle = 'bg-white p-6 rounded-lg shadow-lg max-w-lg w-full';
@@ -33,21 +30,10 @@ export const BasicModal = ({ title, content, onClose, className, ...props }) => 
 };
 
 BasicModal.propTypes = {
-  /**
-   * Title of the modal
-   */
+
   title: PropTypes.string.isRequired,
-  /**
-   * Content of the modal
-   */
   content: PropTypes.string.isRequired,
-  /**
-   * Function to handle the close button action
-   */
   onClose: PropTypes.func.isRequired,
-  /**
-   * Additional classes for styling
-   */
   className: PropTypes.string,
 };
 

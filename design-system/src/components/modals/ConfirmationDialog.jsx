@@ -1,9 +1,6 @@
 // src/components/modals/ConfirmationDialog.jsx
 import PropTypes from 'prop-types';
 
-/**
- * ConfirmationDialog component for displaying a dialog with Yes/No options.
- */
 export const ConfirmationDialog = ({ message, onClose, className, ...props }) => {
   const baseStyle = 'fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center text-black';
   const dialogStyle = 'bg-white p-6 rounded-lg shadow-lg max-w-md w-full';
@@ -41,17 +38,9 @@ export const ConfirmationDialog = ({ message, onClose, className, ...props }) =>
 };
 
 ConfirmationDialog.propTypes = {
-  /**
-   * Message to display in the dialog
-   */
+
   message: PropTypes.string.isRequired,
-  /**
-   * Function to handle the confirm action
-   */
   onClose: PropTypes.func.isRequired,
-  /**
-   * Additional classes for styling
-   */
   className: PropTypes.string,
 };
 

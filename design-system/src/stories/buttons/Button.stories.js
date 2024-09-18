@@ -15,7 +15,7 @@ export default {
     iconPosition: {
       control: {
         type: "radio",
-        options: ["left", "right"], // Control for icon position
+        options: ["left", "right"],
       },
     },
   },
@@ -26,14 +26,29 @@ export default {
 export const Primary = {
   args: {
     primary: true,
-    label: "Button",
+    label: "Primary Button",
+  },
+};
+
+export const Secondary = {
+  args: {
+    primary: false,
+    label: "Secondary Button",
+  },
+};
+
+export const Danger = {
+  args: {
+    primary: false,
+    danger: true,
+    label: "Danger Button",
   },
 };
 
 export const LeadingIcon = {
   args: {
     primary: true,
-    label: "With Plus Icon",
+    label: "Left Icon Button",
     icon: PlusIcon,
     iconPosition: "left",
   },
@@ -42,7 +57,7 @@ export const LeadingIcon = {
 export const TrailingIcon = {
   args: {
     primary: true,
-    label: "With Plus Icon",
+    label: "Right Icon Button",
     icon: PlusIcon,
     iconPosition: "right",
   },
@@ -50,14 +65,16 @@ export const TrailingIcon = {
 
 export const Large = {
   args: {
+    primary: true,
     size: "large",
-    label: "Button",
+    label: "Large Button",
   },
 };
 
 export const Small = {
   args: {
+    primary: true,
     size: "small",
-    label: "Button",
+    label: "Small Button",
   },
 };

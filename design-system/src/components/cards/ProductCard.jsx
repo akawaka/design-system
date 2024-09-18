@@ -2,20 +2,17 @@
 
 import PropTypes from 'prop-types';
 
-/**
- * Product Card component for displaying product details
- */
 export const ProductCard = ({ image, title, description, price, onAddToCart }) => {
   return (
-    <div className="border rounded-lg shadow-md p-4 max-w-xs">
-      <img src={image} alt={title} className="w-full h-48 object-cover rounded-md mb-4" />
-      <h2 className="text-xl font-semibold mb-2">{title}</h2>
-      <p className="text-gray-600 mb-4">{description}</p>
-      <div className="flex justify-between items-center">
+    <div className="max-w-xs p-4 border rounded-lg shadow-md">
+      <img src={image} alt={title} className="object-cover w-full h-48 mb-4 rounded-md" />
+      <h2 className="mb-2 text-xl font-semibold">{title}</h2>
+      <p className="mb-4 text-gray-600">{description}</p>
+      <div className="flex items-center justify-between">
         <span className="text-lg font-bold">{price}</span>
         <button
           onClick={onAddToCart}
-          className="bg-blue-500 text-white py-1 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          className="px-4 py-1 text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
         >
           Add to Cart
         </button>
@@ -25,25 +22,10 @@ export const ProductCard = ({ image, title, description, price, onAddToCart }) =
 };
 
 ProductCard.propTypes = {
-  /**
-   * Image URL of the product
-   */
   image: PropTypes.string.isRequired,
-  /**
-   * Title of the product
-   */
   title: PropTypes.string.isRequired,
-  /**
-   * Description of the product
-   */
   description: PropTypes.string.isRequired,
-  /**
-   * Price of the product
-   */
   price: PropTypes.string.isRequired,
-  /**
-   * Callback function when the "Add to Cart" button is clicked
-   */
   onAddToCart: PropTypes.func,
 };
 

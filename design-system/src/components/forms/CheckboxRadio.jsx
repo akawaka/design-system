@@ -1,9 +1,6 @@
 // src/components/forms/CheckboxRadio.jsx
 import PropTypes from "prop-types";
 
-/**
- * CheckboxRadio component for checkboxes and radio buttons with different states.
- */
 export const CheckboxRadio = ({
   type,
   label,
@@ -46,34 +43,12 @@ export const CheckboxRadio = ({
 };
 
 CheckboxRadio.propTypes = {
-  /**
-   * The type of input (checkbox or radio)
-   */
   type: PropTypes.oneOf(["checkbox", "radio"]).isRequired,
-  /**
-   * Label for the input
-   */
   label: PropTypes.string.isRequired,
-  /**
-   * id for the input
-   */
   id: PropTypes.string.isRequired,
-  /**
-   * text for the input
-   */
   text: PropTypes.string.isRequired,
-  /**
-   * Whether the input is checked
-   */
   checked: PropTypes.bool,
-  /**
-   * Whether the input is disabled
-   */
   disabled: PropTypes.bool,
-
-  /**
-   * Additional classes for styling
-   */
   className: PropTypes.string,
 };
 

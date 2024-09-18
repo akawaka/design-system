@@ -19,7 +19,7 @@ export default {
     },
   },
   args: {
-    onChange: fn(), // Action to handle the toggle switch in Storybook
+    onChange: fn(),
   },
 };
 

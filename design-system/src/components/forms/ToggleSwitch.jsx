@@ -2,9 +2,6 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Switch } from '@headlessui/react';
 
-/**
- * ToggleSwitch component for on/off switches.
- */
 export const ToggleSwitch = ({ checked: checkedProp, disabled, onChange, className, ...props }) => {
   const [checked, setChecked] = useState(checkedProp);
 
@@ -35,21 +32,10 @@ export const ToggleSwitch = ({ checked: checkedProp, disabled, onChange, classNa
 };
 
 ToggleSwitch.propTypes = {
-  /**
-   * Whether the switch is checked (on)
-   */
+
   checked: PropTypes.bool,
-  /**
-   * Whether the switch is disabled
-   */
   disabled: PropTypes.bool,
-  /**
-   * Callback function when the switch is toggled
-   */
   onChange: PropTypes.func,
-  /**
-   * Additional classes for styling
-   */
   className: PropTypes.string,
 };
 

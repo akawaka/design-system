@@ -1,10 +1,8 @@
 import PropTypes from "prop-types";
 
-/**
- * Primary UI component for user interaction
- */
 export const Button = ({
   primary,
+  danger,
   size,
   label,
   backgroundColor,
@@ -13,21 +11,24 @@ export const Button = ({
   ...props
 }) => {
   const baseStyle =
-    "font-medium rounded-xl focus:outline-none focus:ring-2 inline-flex items-center justify-center";
-  const sizeStyle =
-    size === "large"
-      ? "py-3 px-6 text-lg"
-      : size === "small"
-      ? "py-1 px-3 text-sm"
-      : "py-2 px-4";
-  const primaryStyle = primary
-    ? "bg-blue-500 text-white hover:bg-blue-600 focus:ring-blue-300 flex items-center"
-    : "bg-green-500 text-gray-800 hover:bg-gray-300 focus:ring-gray-200 flex items-center";
+    "font-medium rounded-xl focus:outline-none focus:ring-2 flex items-center justify-center";
+
+  const sizeStyle = {
+    large: "py-3 px-6 text-lg",
+    medium: "py-2 px-4",
+    small: "py-1 px-3 text-sm",
+  }[size];
+
+  const buttonStyle = danger
+    ? "bg-red-700 text-white hover:bg-red-500 focus:ring-red-300"
+    : primary
+    ? "bg-blue-700 text-white hover:bg-blue-500 focus:ring-blue-300"
+    : "bg-green-700 text-white hover:bg-green-500 focus:ring-green-300";
 
   return (
     <button
       type="button"
-      className={`${baseStyle} ${sizeStyle} ${primaryStyle}`}
+      className={`${baseStyle} ${sizeStyle} ${buttonStyle}`}
       style={backgroundColor ? { backgroundColor } : {}}
       {...props}
     >
@@ -43,41 +44,24 @@ export const Button = ({
 };
 
 Button.propTypes = {
-  /**
-   * Is this the principal call to action on the page?
-   */
   primary: PropTypes.bool,
-  /**
-   * What background color to use
-   */
+  danger: PropTypes.bool,
   backgroundColor: PropTypes.string,
-  /**
-   * How large should the button be?
-   */
   size: PropTypes.oneOf(["small", "medium", "large"]),
-  /**
-   * Button contents
-   */
   label: PropTypes.string.isRequired,
-  /**
-   * Icon element (optional)
-   */
   icon: PropTypes.element,
-  /**
-   * Position of the icon, can be "left" or "right"
-   */
   iconPosition: PropTypes.oneOf(["left", "right"]),
-  /**
-   * Optional click handler
-   */
   onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   backgroundColor: null,
   primary: false,
+  danger: false,
   size: "medium",
   icon: null,
   iconPosition: "left",
   onClick: undefined,
 };
+
+export default Button;
