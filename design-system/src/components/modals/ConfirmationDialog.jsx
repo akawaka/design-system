@@ -1,0 +1,66 @@
+// src/components/modals/ConfirmationDialog.jsx
+import PropTypes from 'prop-types';
+
+/**
+ * ConfirmationDialog component for displaying a dialog with Yes/No options.
+ */
+export const ConfirmationDialog = ({ message, onConfirm, onCancel, className, ...props }) => {
+  const baseStyle = 'fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center';
+  const dialogStyle = 'bg-white p-6 rounded-lg shadow-lg max-w-md w-full';
+  const buttonStyle = 'mt-4 py-2 px-4 rounded focus:outline-none focus:ring-2';
+
+  const confirmButtonStyle = 'bg-green-500 text-white hover:bg-green-600 focus:ring-green-300';
+  const cancelButtonStyle = 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-300';
+
+  // Explicitly declare Tailwind classes to ensure they are included
+  const allClasses = [
+    'fixed', 'inset-0', 'bg-gray-800', 'bg-opacity-75', 'flex', 'items-center', 'justify-center',
+    'bg-white', 'p-6', 'rounded-lg', 'shadow-lg', 'max-w-md', 'w-full',
+    'mt-4', 'py-2', 'px-4', 'rounded', 'focus:outline-none', 'focus:ring-2',
+    'bg-green-500', 'text-white', 'hover:bg-green-600', 'focus:ring-green-300',
+    'bg-red-500', 'hover:bg-red-600', 'focus:ring-red-300'
+  ];
+
+  return (
+    <div className={`${baseStyle} ${className}`} {...props}>
+      <div className={dialogStyle}>
+        <p>{message}</p>
+        <div className="flex justify-end space-x-4">
+          <button className={`${buttonStyle} ${confirmButtonStyle}`} onClick={onConfirm}>
+            Yes
+          </button>
+          <button className={`${buttonStyle} ${cancelButtonStyle}`} onClick={onCancel}>
+            No
+          </button>
+        </div>
+      </div>
+      {/* This comment ensures Tailwind picks up the following classes: */}
+      {/* ${allClasses.join(' ')} */}
+    </div>
+  );
+};
+
+ConfirmationDialog.propTypes = {
+  /**
+   * Message to display in the dialog
+   */
+  message: PropTypes.string.isRequired,
+  /**
+   * Function to handle the confirm action
+   */
+  onConfirm: PropTypes.func.isRequired,
+  /**
+   * Function to handle the cancel action
+   */
+  onCancel: PropTypes.func.isRequired,
+  /**
+   * Additional classes for styling
+   */
+  className: PropTypes.string,
+};
+
+ConfirmationDialog.defaultProps = {
+  className: '',
+};
+
+export default ConfirmationDialog;

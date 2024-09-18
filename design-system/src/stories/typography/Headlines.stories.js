@@ -1,7 +1,6 @@
 // src/stories/typography/Headlines.stories.js
 import { Headlines } from "../../components/typography/Headlines";
 
-// Default export to define metadata for the story
 export default {
   title: "Design System/Typography/Headlines",
   component: Headlines,
@@ -19,7 +18,6 @@ export default {
   },
 };
 
-// Individual stories for each headline variant
 export const Headline1 = {
   args: {
     variant: "h1",
