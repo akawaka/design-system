@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
  * BasicModal component for displaying a modal with title, content, and a close button.
  */
 export const BasicModal = ({ title, content, onClose, className, ...props }) => {
-  const baseStyle = 'fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center';
+  const baseStyle = 'fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center text-black';
   const modalStyle = 'bg-white p-6 rounded-lg shadow-lg max-w-lg w-full';
   const buttonStyle = 'mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300';
 

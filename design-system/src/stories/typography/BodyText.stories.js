@@ -47,6 +47,6 @@ export const LeadText = {
   args: {
     as: "p",
     children: "This is a lead paragraph with larger, lighter text.",
-    className: "text-lg font-light",
+    className: "text-lg font-light text-gray-600",
   },
 };

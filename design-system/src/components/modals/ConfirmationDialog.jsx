@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 /**
  * ConfirmationDialog component for displaying a dialog with Yes/No options.
  */
-export const ConfirmationDialog = ({ message, onConfirm, onCancel, className, ...props }) => {
-  const baseStyle = 'fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center';
+export const ConfirmationDialog = ({ message, onClose, className, ...props }) => {
+  const baseStyle = 'fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center text-black';
   const dialogStyle = 'bg-white p-6 rounded-lg shadow-lg max-w-md w-full';
   const buttonStyle = 'mt-4 py-2 px-4 rounded focus:outline-none focus:ring-2';
 
@@ -26,10 +26,10 @@ export const ConfirmationDialog = ({ message, onConfirm, onCancel, className, ..
       <div className={dialogStyle}>
         <p>{message}</p>
         <div className="flex justify-end space-x-4">
-          <button className={`${buttonStyle} ${confirmButtonStyle}`} onClick={onConfirm}>
+          <button className={`${buttonStyle} ${confirmButtonStyle}`} onClick={onClose}>
             Yes
           </button>
-          <button className={`${buttonStyle} ${cancelButtonStyle}`} onClick={onCancel}>
+          <button className={`${buttonStyle} ${cancelButtonStyle}`} onClick={onClose}>
             No
           </button>
         </div>
@@ -48,11 +48,7 @@ ConfirmationDialog.propTypes = {
   /**
    * Function to handle the confirm action
    */
-  onConfirm: PropTypes.func.isRequired,
-  /**
-   * Function to handle the cancel action
-   */
-  onCancel: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   /**
    * Additional classes for styling
    */

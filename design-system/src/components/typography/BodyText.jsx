@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 export const BodyText = ({ variant, children, className, ...props }) => {
   const baseStyle = 'font-sans';
   const variantStyle = {
-    paragraph: 'text-base',
-    blockquote: 'text-lg italic border-l-4 pl-4 border-gray-300',
+    paragraph: 'text-base text-gray-600',
+    blockquote: 'text-lg text-gray-600 italic border-l-4 pl-4 border-gray-300',
     small: 'text-sm text-gray-600',
   };
 
@@ -16,9 +16,11 @@ export const BodyText = ({ variant, children, className, ...props }) => {
   const Tag = variant === 'blockquote' ? 'blockquote' : 'p';
 
   return (
-    <Tag className={`${baseStyle} ${variantStyle[variant]} ${className}`} {...props}>
-      {children}
-    </Tag>
+    <div className="p-12 bg-white">
+      <Tag className={`${baseStyle} ${variantStyle[variant]} ${className}`} {...props}>
+        {children}
+      </Tag>
+    </div>
   );
 };
 
