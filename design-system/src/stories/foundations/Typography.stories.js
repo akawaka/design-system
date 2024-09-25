@@ -1,7 +1,7 @@
-import { Typography } from "../../components/utilities/Typography";
+import { Typography } from "../../components/foundations/Typography";
 
 export default {
-  title: "Design System/Utilities/Typography",
+  title: "Design System/Foundations/Typography",
   component: Typography,
   parameters: {
     layout: "centered",

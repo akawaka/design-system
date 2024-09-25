@@ -1,7 +1,7 @@
-import { Colors } from "../../components/utilities/Colors";
+import { Colors } from "../../components/foundations/Colors";
 
 export default {
-  title: "Design System/Utilities/Colors",
+  title: "Design System/Foundations/Colors",
   component: Colors,
   parameters: {
     layout: "centered",

@@ -2,7 +2,7 @@ import { fn } from "@storybook/test";
 import Alert from "../../components/alerts/Alert";
 
 export default {
-  title: "Design System/Alerts/Alert",
+  title: "Design System/Components/Alerts/Alert",
   component: Alert,
   parameters: {
     layout: "centered",

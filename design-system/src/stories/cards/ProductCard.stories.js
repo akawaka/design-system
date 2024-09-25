@@ -4,7 +4,7 @@ import { ProductCard } from "../../components/cards/ProductCard";
 
 // Default export to define metadata for the story
 export default {
-  title: "Design System/Cards/ProductCard",
+  title: "Design System/Components/Cards/ProductCard",
   component: ProductCard,
   parameters: {
     layout: "centered",

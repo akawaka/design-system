@@ -10,12 +10,12 @@ export const Logos = () => {
 
           {/* Farming Illustration */}
           <div className="relative flex flex-col items-center justify-center px-12 py-8 transition duration-300 ease-out bg-black border border-gray-300 rounded-xl">
-            <img src={AkawakaWhite} alt="Farming Illustration" className="w-24 h-24" />
+            <img src={AkawakaWhite} alt="Farming Illustration" className="w-96" />
           </div>
 
           {/* Augmented Reality Illustration */}
           <div className="relative flex flex-col items-center justify-center px-12 py-8 transition duration-300 ease-out border border-gray-300 rounded-xl">
-            <img src={AkawakaBlack} alt="Augmented Reality Illustration" className="w-24 h-24" />
+            <img src={AkawakaBlack} alt="Augmented Reality Illustration" className="w-96" />
           </div>
         </div>
       </div>

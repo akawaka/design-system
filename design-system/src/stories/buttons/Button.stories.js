@@ -4,7 +4,7 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 
 
 export default {
-  title: "Design System/Buttons/Button",
+  title: "Design System/Components/Buttons/Button",
   component: Button,
   parameters: {
     layout: "centered",

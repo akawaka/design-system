@@ -2,7 +2,7 @@
 import { SelectDropdown } from "../../components/forms/SelectDropdown";
 
 export default {
-  title: "Design System/Forms/SelectDropdown",
+  title: "Design System/Components/Forms/SelectDropdown",
   component: SelectDropdown,
   parameters: {
     layout: "centered",

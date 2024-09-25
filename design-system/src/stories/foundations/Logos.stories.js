@@ -1,7 +1,7 @@
-import { Logos } from "../../components/utilities/Logos";
+import { Logos } from "../../components/foundations/Logos";
 
 export default {
-  title: "Design System/Utilities/Logos",
+  title: "Design System/Foundations/Logos",
   component: Logos,
   parameters: {
     layout: "centered",

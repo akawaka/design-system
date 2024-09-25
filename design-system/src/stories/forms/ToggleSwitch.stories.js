@@ -2,7 +2,7 @@ import { ToggleSwitch } from "../../components/forms/ToggleSwitch";
 import { fn } from "@storybook/test";
 
 export default {
-  title: "Design System/Forms/ToggleSwitch",
+  title: "Design System/Components/Forms/ToggleSwitch",
   component: ToggleSwitch,
   parameters: {
     layout: "centered",

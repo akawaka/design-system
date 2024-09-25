@@ -1,7 +1,7 @@
-import { ShadowsBorders } from "../../components/utilities/ShadowsBorders";
+import { ShadowsBorders } from "../../components/foundations/ShadowsBorders";
 
 export default {
-  title: "Design System/Utilities/ShadowsBorders",
+  title: "Design System/Foundations/ShadowsBorders",
   component: ShadowsBorders,
   parameters: {
     layout: "centered",

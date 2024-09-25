@@ -4,7 +4,7 @@ import EnvelopeIcon from "../../components/icons/EnvelopeIcon.jsx";
 import QuestionIcon from "../../components/icons/QuestionIcon.jsx";
 
 export default {
-  title: "Design System/Forms/Input",
+  title: "Design System/Components/Forms/Input",
   component: Input,
   parameters: {
     layout: "centered",

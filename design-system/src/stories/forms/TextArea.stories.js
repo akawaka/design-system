@@ -2,7 +2,7 @@
 import { TextArea } from "../../components/forms/TextArea";
 
 export default {
-  title: "Design System/Forms/TextArea",
+  title: "Design System/Components/Forms/TextArea",
   component: TextArea,
   parameters: {
     layout: "centered",

@@ -2,7 +2,7 @@
 import { CheckboxRadio } from "../../components/forms/CheckboxRadio";
 
 export default {
-  title: "Design System/Forms/CheckboxRadio",
+  title: "Design System/Components/Forms/CheckboxRadio",
   component: CheckboxRadio,
   parameters: {
     layout: "centered",

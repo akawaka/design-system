@@ -2,7 +2,7 @@
 import { BodyText } from "../../components/typography/BodyText";
 
 export default {
-  title: "Design System/Typography/BodyText",
+  title: "Design System/Components/Typography/BodyText",
   component: BodyText,
   parameters: {
     layout: "centered",

@@ -1,7 +1,7 @@
 import { Icons } from "../../components/icons/Icons";
 
 export default {
-  title: "Design System/Utilities/Icons",
+  title: "Design System/Foundations/Icons",
   component: Icons,
   parameters: {
     layout: "centered",

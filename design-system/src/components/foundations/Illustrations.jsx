@@ -6,7 +6,7 @@ import PeopleSvg from '../../assets/people.svg';
 
 export const Illustrations = () => {
   return (
-    <div className="flex flex-col p-8 space-y-8 bg-white border border-gray-200 shadow-xl rounded-xl">
+    <div className="flex flex-col w-full p-8 space-y-8 bg-white border border-gray-200 shadow-xl rounded-xl">
       <div>
         <h2 className="mb-4 text-xl text-gray-800">Illustrations</h2>
         <div className="grid grid-cols-2 gap-4 p-8 bg-white border border-gray-200 shadow-xl rounded-xl">

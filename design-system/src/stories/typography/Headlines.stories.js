@@ -2,7 +2,7 @@
 import { Headlines } from "../../components/typography/Headlines";
 
 export default {
-  title: "Design System/Typography/Headlines",
+  title: "Design System/Components/Typography/Headlines",
   component: Headlines,
   parameters: {
     layout: "centered",

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ConfirmationDialog } from "../../components/modals/ConfirmationDialog";
 
 export default {
-  title: "Design System/Modals/ConfirmationDialog",
+  title: "Design System/Components/Modals/ConfirmationDialog",
   component: ConfirmationDialog,
   parameters: {
     layout: "centered",

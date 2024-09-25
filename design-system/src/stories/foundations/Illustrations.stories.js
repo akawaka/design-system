@@ -1,7 +1,7 @@
-import { Illustrations } from "../../components/utilities/Illustrations";
+import { Illustrations } from "../../components/foundations/Illustrations";
 
 export default {
-  title: "Design System/Utilities/Illustrations",
+  title: "Design System/Foundations/Illustrations",
   component: Illustrations,
   parameters: {
     layout: "centered",

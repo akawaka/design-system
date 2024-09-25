@@ -2,7 +2,7 @@
 import { DatePicker } from "../../components/forms/DatePicker";
 
 export default {
-  title: "Design System/Forms/DatePicker",
+  title: "Design System/Components/Forms/DatePicker",
   component: DatePicker,
   parameters: {
     layout: "centered",

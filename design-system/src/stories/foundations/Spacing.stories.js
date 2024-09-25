@@ -1,8 +1,8 @@
 // src/stories/utilities/Spacing.stories.js
-import { Spacing } from "../../components/utilities/Spacing";
+import { Spacing } from "../../components/foundations/Spacing";
 
 export default {
-  title: "Design System/Utilities/Spacing",
+  title: "Design System/Foundations/Spacing",
   component: Spacing,
   parameters: {
     layout: "centered",

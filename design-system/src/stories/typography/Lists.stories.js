@@ -2,7 +2,7 @@
 import { Lists } from "../../components/typography/Lists";
 
 export default {
-  title: "Design System/Typography/Lists",
+  title: "Design System/Components/Typography/Lists",
   component: Lists,
   parameters: {
     layout: "centered",

@@ -1,8 +1,8 @@
 // src/stories/utilities/Themes.stories.js
-import { Themes } from "../../components/utilities/Themes";
+import { Themes } from "../../components/foundations/Themes";
 
 export default {
-  title: "Design System/Utilities/Themes",
+  title: "Design System/Foundations/Themes",
   component: Themes,
   parameters: {
     layout: "centered",

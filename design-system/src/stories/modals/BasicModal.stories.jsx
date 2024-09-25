@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BasicModal } from "../../components/modals/BasicModal";
 
 export default {
-  title: "Design System/Modals/BasicModal",
+  title: "Design System/Components/Modals/BasicModal",
   component: BasicModal,
   parameters: {
     layout: "centered",

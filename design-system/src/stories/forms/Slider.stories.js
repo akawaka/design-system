@@ -2,7 +2,7 @@
 import { Slider } from "../../components/forms/Slider";
 
 export default {
-  title: "Design System/Forms/Slider",
+  title: "Design System/Components/Forms/Slider",
   component: Slider,
   parameters: {
     layout: "centered",

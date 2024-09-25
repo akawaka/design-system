@@ -2,7 +2,7 @@
 import { Links } from "../../components/typography/Links";
 
 export default {
-  title: "Design System/Typography/Links",
+  title: "Design System/Components/Typography/Links",
   component: Links,
   parameters: {
     layout: "centered",
