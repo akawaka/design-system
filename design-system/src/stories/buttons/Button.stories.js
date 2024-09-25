@@ -1,6 +1,6 @@
 import { fn } from "@storybook/test";
 import { Button } from "../../components/buttons/Button";
-import PlusIcon from '../../components/icons/PlusIcon.jsx';
+import { PlusIcon } from "@heroicons/react/24/solid";
 
 
 export default {

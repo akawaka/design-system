@@ -33,11 +33,11 @@ export const Button = ({
       {...props}
     >
       {Icon && iconPosition === "left" && (
-        <span className="mr-2">{<Icon />}</span>
+        <Icon className="mr-2 text-white size-6" />
       )}
       {label}
       {Icon && iconPosition === "right" && (
-        <span className="ml-2">{<Icon />}</span>
+        <Icon className="ml-2 text-white size-6" />
       )}
     </button>
   );
