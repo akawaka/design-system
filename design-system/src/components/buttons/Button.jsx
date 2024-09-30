@@ -5,16 +5,20 @@ export const Button = ({
   danger,
   size,
   label,
+  rounded,
   backgroundColor,
   icon: Icon,
   iconPosition,
   ...props
 }) => {
   const baseStyle =
-    "font-medium rounded-xl focus:outline-none focus:ring-2 flex items-center justify-center";
+    "font-medium focus:outline-none focus:ring-2 flex items-center justify-center";
+
+  const roundedFull =
+    "rounded-full";
 
   const sizeStyle = {
-    large: "py-3 px-6 text-lg",
+    large: "py-4 px-6 text-lg",
     medium: "py-2 px-4",
     small: "py-1 px-3 text-sm",
   }[size];
@@ -28,7 +32,7 @@ export const Button = ({
   return (
     <button
       type="button"
-      className={`${baseStyle} ${sizeStyle} ${buttonStyle}`}
+      className={`${baseStyle} ${sizeStyle} ${buttonStyle} ${rounded ? roundedFull : 'rounded-xl'}`}
       style={backgroundColor ? { backgroundColor } : {}}
       {...props}
     >
@@ -38,6 +42,9 @@ export const Button = ({
       {label}
       {Icon && iconPosition === "right" && (
         <Icon className="ml-2 text-white size-6" />
+      )}
+      {Icon && !iconPosition && (
+        <Icon className="text-white size-6" />
       )}
     </button>
   );
@@ -50,6 +57,7 @@ Button.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
   label: PropTypes.string.isRequired,
   icon: PropTypes.element,
+  rounded: PropTypes.bool,
   iconPosition: PropTypes.oneOf(["left", "right"]),
   onClick: PropTypes.func,
 };
@@ -58,9 +66,10 @@ Button.defaultProps = {
   backgroundColor: null,
   primary: false,
   danger: false,
+  rounded: false,
   size: "medium",
   icon: null,
-  iconPosition: "left",
+  iconPosition: null,
   onClick: undefined,
 };
 

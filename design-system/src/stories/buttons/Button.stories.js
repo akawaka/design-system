@@ -78,3 +78,13 @@ export const Small = {
     label: "Small Button",
   },
 };
+
+export const OnlyIcon = {
+  args: {
+    primary: true,
+    icon: PlusIcon,
+    rounded: true,
+    label: "",
+  },
+};
+
