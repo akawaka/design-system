@@ -1,7 +1,7 @@
 import AkawakaWhite from '../../assets/logo_akawaka_blanc.svg';
 import AkawakaBlack from '../../assets/logo_akawaka_noir.png';
 
-export const Logos = () => {
+const Logos = () => {
   return (
     <div className="flex flex-col p-8 space-y-8 bg-white border border-gray-200 shadow-xl rounded-xl">
       <div>
@@ -23,4 +23,14 @@ export const Logos = () => {
   );
 };
 
-export default Logos;
+export default {
+  title: "Design System/Assets/Logos",
+  component: Logos,
+  parameters: {
+    layout: "centered",
+  },
+};
+
+export const AllLogos = {
+  args: {},
+};
