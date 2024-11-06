@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 export default {
-  title: "Design System/Tokens/BordersShadows",
+  title: "Design System/Atoms/BordersShadows",
   tags: ["autodocs"],
   argTypes: {
     boxShadow: {

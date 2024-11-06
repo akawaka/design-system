@@ -5,7 +5,7 @@ import * as SolidIcons16 from '@heroicons/react/16/solid';
 import PropTypes from 'prop-types';
 
 export default {
-  title: "Design System/Tokens/Icons",
+  title: "Design System/Atoms/Icons",
   parameters: {
     layout: "centered",
   },

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 export default {
-  title: "Design System/Tokens/Spacing",
+  title: "Design System/Atoms/Spacing",
   tags: ["autodocs"],
   argTypes: {
     padding: {

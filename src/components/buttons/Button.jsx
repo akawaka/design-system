@@ -1,76 +1,59 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import { ArrowLongRightIcon } from '@heroicons/react/20/solid';
 
-export const Button = ({
-  primary,
-  danger,
-  size,
-  label,
-  rounded,
-  backgroundColor,
-  icon: Icon,
-  iconPosition,
-  ...props
-}) => {
-  const baseStyle =
-    "font-medium focus:outline-none focus:ring-2 flex items-center justify-center";
+const ButtonVariants = {
+  primary: {
+    className: 'bg-stone-900 font-semibold shadow text-white hover:bg-stone-700 focus:ring-stone-900 py-2 px-4',
+    content: ({ label }) => (
+      <>
+        {label}
+      </>
+    ),
+  },
+  secondary: {
+    className: 'text-stone-900 border font-semibold border-stone-900 bg-white rounded-md shadow hover:bg-stone-100 focus:ring-stone-900 py-2 px-4',
+    content: ({ label }) => (
+      <>
+        {label}
+      </>
+    ),
+  },
+  tertiary: {
+    className: 'text-stone-900 font-semibold hover:text-stone-700 py-2 focus:ring-transparent flex items-center',
+    content: ({ label }) => (
+      <>
+        {label}
+        <ArrowLongRightIcon className="w-6 h-6 ml-2" />
+      </>
+    ),
+  },
+  icon: {
+    className: 'text-stone-700 hover:text-stone-500 focus:ring-transparent rounded-full p-2',
+    content: ({ children }) => children,
+  },
+};
 
-  const roundedFull =
-    "rounded-full";
-
-  const sizeStyle = {
-    large: "py-4 px-6 text-lg",
-    medium: "py-2 px-4",
-    small: "py-1 px-3 text-sm",
-  }[size];
-
-  const buttonStyle = danger
-    ? "bg-red-700 text-white hover:bg-red-500 focus:ring-red-300"
-    : primary
-    ? "bg-blue-700 text-white hover:bg-blue-500 focus:ring-blue-300"
-    : "bg-green-700 text-white hover:bg-green-500 focus:ring-green-300";
+export const Button = ({ variant = 'primary', onClick, className, label, children, ...props }) => {
+  const { className: variantClassName, content } = ButtonVariants[variant];
+  const baseStyle = 'rounded focus:outline-none focus:ring-2 transition ease-out duration-300';
 
   return (
     <button
-      type="button"
-      className={`${baseStyle} ${sizeStyle} ${buttonStyle} ${rounded ? roundedFull : 'rounded-xl'}`}
-      style={backgroundColor ? { backgroundColor } : {}}
+      className={`${baseStyle} ${variantClassName} ${className} flex items-center justify-center`}
+      onClick={onClick}
       {...props}
     >
-      {Icon && iconPosition === "left" && (
-        <Icon className="mr-2 text-white size-6" />
-      )}
-      {label}
-      {Icon && iconPosition === "right" && (
-        <Icon className="ml-2 text-white size-6" />
-      )}
-      {Icon && !iconPosition && (
-        <Icon className="text-white size-6" />
-      )}
+      {content({ label, children })}
     </button>
   );
 };
 
 Button.propTypes = {
-  primary: PropTypes.bool,
-  danger: PropTypes.bool,
-  backgroundColor: PropTypes.string,
-  size: PropTypes.oneOf(["small", "medium", "large"]),
-  label: PropTypes.string.isRequired,
-  icon: PropTypes.element,
-  rounded: PropTypes.bool,
-  iconPosition: PropTypes.oneOf(["left", "right"]),
+  label: PropTypes.string,
   onClick: PropTypes.func,
-};
-
-Button.defaultProps = {
-  backgroundColor: null,
-  primary: false,
-  danger: false,
-  rounded: false,
-  size: "medium",
-  icon: null,
-  iconPosition: null,
-  onClick: undefined,
+  className: PropTypes.string,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'icon', 'tertiary']),
+  children: PropTypes.node,
 };
 
 export default Button;

@@ -10,7 +10,12 @@ export default {
   //   'p-48'
   // ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'headline': ['Bebas Neue', 'cursive'],
+        'body': ['Roboto', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };

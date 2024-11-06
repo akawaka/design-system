@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 export default {
-  title: "Design System/Tokens/BordersRadius",
+  title: "Design System/Atoms/BordersRadius",
   tags: ["autodocs"],
   argTypes: {
     borderRadius: {

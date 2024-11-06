@@ -1,32 +1,27 @@
-// src/components/typography/Headlines.jsx
+// src/components/typography/Heading.jsx
 import PropTypes from 'prop-types';
 
-/**
- * Headlines component for displaying various levels of headers (h1 to h6).
- */
-export const Headlines = ({ variant, children, ...props }) => {
-  const baseStyle = 'font-sans';
-  const variantStyle = {
-    h1: 'text-4xl font-bold',
-    h2: 'text-3xl font-semibold',
-    h3: 'text-2xl font-medium',
-    h4: 'text-xl font-normal',
-    h5: 'text-lg font-light',
-    h6: 'text-base font-thin',
+export const Heading = ({ level, children, white = false, ...props }) => {
+  const Tag = `h${level}`;
+  const styles = {
+    1: 'text-6xl font-headline tracking-tight',
+    2: 'text-4xl font-headline tracking-tight',
+    default: 'text-2xl font-headline tracking-tight'
   };
-
-  const Tag = variant;
+  const headingStyle = styles[level] || styles.default;
+  const textColor = white ? 'text-white' : 'text-stone-900';
 
   return (
-    <Tag className={`${baseStyle} ${variantStyle[variant]}`} {...props}>
+    <Tag className={`${headingStyle} ${textColor}`} {...props}>
       {children}
     </Tag>
   );
 };
 
-Headlines.propTypes = {
-  variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']).isRequired,
+Heading.propTypes = {
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   children: PropTypes.node.isRequired,
+  white: PropTypes.bool,
 };
 
-export default Headlines;
+export default Heading;

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 export default {
-  title: "Design System/Tokens/Colors",
+  title: "Design System/Atoms/Colors",
   tags: ["autodocs"],
   argTypes: {
     color: {
@@ -12,8 +12,8 @@ export default {
 
 // Define color categories with descriptions
 const primaryColors = {
-  "amber-500": { class: "bg-amber-500", description: "Used for actions. Use dark text for contrast." },
-  "amber-300": { class: "bg-amber-300", description: "Hover for actions." },
+  "stone-900": { class: "bg-stone-900", description: "Used for actions. Use white text for contrast." },
+  "stone-700": { class: "bg-stone-700", description: "Hover for actions." },
 };
 
 const neutralColors = {
@@ -35,7 +35,7 @@ const accentColors = {
 };
 
 const gradientColors = {
-  "pink-500 to amber-500": { class: "bg-gradient-to-r from-pink-600 to-amber-500", description: "Decorative or highlight background gradient." },
+  "from-[#ffc0b8] to-[#ffa454] via-[#ffaf88]": { class: "bg-gradient-to-r from-[#ffc0b8] to-[#ffa454] via-[#ffaf88] bg-[linear-gradient(145deg,var(--tw-gradient-stops))] from-[28%] via-[70%]", description: "Decorative or highlight background gradient." },
 };
 
 // Updated ColorTemplate to display name and description
