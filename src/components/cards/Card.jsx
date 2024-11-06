@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const Card = ({ children, backgroundColor = 'bg-white', ...props }) => {
   return (
-    <div className={`w-full h-full overflow-hidden shadow-lg ${backgroundColor} rounded-xl`} {...props}>
+    <div className={`w-full h-full overflow-hidden shadow-lg ${backgroundColor} rounded-xl p-8`} {...props}>
       {children}
     </div>
   );

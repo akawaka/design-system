@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Heading } from "../../components/typography/Headlines";
+import { Heading } from "../../components/typography/Heading";
 import { BodyText } from "../../components/typography/BodyText";
 
 export default {
