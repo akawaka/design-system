@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Heading } from "../../components/typography/Heading";
 import { BodyText } from "../../components/typography/BodyText";
+import { FeedbackText } from "../../components/typography/FeedbackText";
 
 export default {
   title: "Design System/Molecules/Textes",
@@ -20,6 +21,10 @@ export default {
     children: {
       control: "text",
     },
+    type: {
+      control: "select",
+      options: ["alert", "warning", "info", "validation"],
+    },
   },
 };
 
@@ -35,6 +40,14 @@ const bodyTextVariants = {
   paragraph: { description: "Paragraph text." },
   small: { description: "Small text." },
   label: { description: "Label text." },
+};
+
+// Define feedback text types with descriptions
+const feedbackTextTypes = {
+  alert: { description: "Alert message." },
+  warning: { description: "Warning message." },
+  info: { description: "Informational message." },
+  validation: { description: "Validation message." },
 };
 
 // Updated HeadlineTemplate to display name and description
@@ -72,6 +85,22 @@ BodyTextTemplate.propTypes = {
   children: PropTypes.string.isRequired,
 };
 
+// Updated FeedbackTextTemplate to display name and description
+const FeedbackTextTemplate = ({ type, children }) => (
+  <div className="flex-grow p-5 m-2 space-y-4 border shadow-md border-stone-300">
+    <FeedbackText type={type}>{children}</FeedbackText>
+    <p className="font-semibold">{type}</p>
+    <p className="text-sm text-stone-600">
+      {feedbackTextTypes[type].description}
+    </p>
+  </div>
+);
+
+FeedbackTextTemplate.propTypes = {
+  type: PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
+};
+
 // Render all headline levels with descriptions
 export const AllHeadlines = {
   render: () => (
@@ -98,6 +127,21 @@ export const AllBodyTexts = {
             tout en respectant nos valeurs humaines, éthiques et notre envie de
             partage.
           </BodyTextTemplate>
+        ))}
+      </div>
+    </div>
+  ),
+};
+
+// Render all feedback text types with descriptions
+export const AllFeedbackTexts = {
+  render: () => (
+    <div className="mx-auto max-w-7xl">
+      <div className="flex flex-wrap gap-x-4 w-fit">
+        {Object.keys(feedbackTextTypes).map((typeKey) => (
+          <FeedbackTextTemplate key={typeKey} type={typeKey}>
+            This is a {typeKey} message.
+          </FeedbackTextTemplate>
         ))}
       </div>
     </div>

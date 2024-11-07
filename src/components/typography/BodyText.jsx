@@ -8,7 +8,7 @@ export const BodyText = ({ variant, children, className, ...props }) => {
   const variantStyle = {
     paragraph: 'text-stone-700',
     small: 'text-sm text-stone-700',
-    label: 'text-xs uppercase font-semibold text-slate-500 tracking-wider',
+    label: 'text-xs uppercase font-semibold text-stone-500 tracking-wider',
   };
 
   return (

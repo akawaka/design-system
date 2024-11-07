@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Button } from "../../components/buttons/Button";
-import { ArrowLeftIcon } from '@heroicons/react/20/solid';
+import { ArrowLeftIcon } from '@heroicons/react/24/solid';
 
 export default {
   title: "Design System/Molecules/Buttons",
@@ -29,9 +29,7 @@ const ButtonTemplate = ({ variant, label }) => (
   <div className="flex-grow p-5 m-2 space-y-4 border shadow-md border-stone-300">
     {variant === 'icon' ? (
       <Button variant={variant}>
-        <a href="/">
-          <ArrowLeftIcon className="w-8 h-8" />
-        </a>
+          <ArrowLeftIcon className="size-6" />
       </Button>
     ) : (
       <Button variant={variant} label={label} />

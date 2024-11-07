@@ -1,5 +1,7 @@
 import { useState, useRef } from "react";
 import PropTypes from "prop-types";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import Heading from "../typography/Heading";
 
 export function Accordion({ title, children, initialOpen }) {
   const [isOpen, setIsOpen] = useState(initialOpen);
@@ -10,32 +12,19 @@ export function Accordion({ title, children, initialOpen }) {
   };
 
   return (
-    <div className="px-6 py-2 border border-gray-300 rounded-xl">
+    <div className="px-6 py-2 border border-stone-300 rounded-xl">
       <div>
         <button
           onClick={toggleAccordion}
           className="flex items-center justify-between py-4 w-96 focus:outline-none"
         >
-          <span className="text-lg font-medium text-gray-800">{title}</span>
+          <Heading level={3}>{title}</Heading>
           <span
             className={`transform duration-300 ease-out transition-transform ${
               isOpen ? "rotate-180" : ""
             }`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6 text-gray-600"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+            <ChevronDownIcon className="size-6 text-stone-700" />
           </span>
         </button>
       </div>
@@ -48,7 +37,7 @@ export function Accordion({ title, children, initialOpen }) {
         }}
         className={`overflow-hidden transition-max-height duration-300 ease-out`}
       >
-        <div className="py-4 text-gray-600">{children}</div>
+        <div className="py-4 text-stone-700">{children}</div>
       </div>
     </div>
   );
