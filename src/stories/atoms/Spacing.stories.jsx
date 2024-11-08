@@ -19,6 +19,7 @@ const paddingSizes = {
   "p-8": { class: "p-8", description: "Used for content with significant spacing." },
   "p-12": { class: "p-12", description: "Used for content with large spacing." },
   "p-24": { class: "p-24", description: "Used for content with very large spacing." },
+  "p-36": { class: "p-36", description: "Used for content with very large spacing." },
   "p-48": { class: "p-48", description: "Used for content with maximum spacing." },
 };
 

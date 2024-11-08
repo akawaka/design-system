@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
  */
 export const BodyText = ({ variant, children, className, ...props }) => {
   const variantStyle = {
+    headline: "text-2xl text-stone-700 font-semibold",
     paragraph: 'text-stone-700',
     small: 'text-sm text-stone-700',
     label: 'text-xs uppercase font-semibold text-stone-500 tracking-wider',

@@ -12,6 +12,7 @@ export default {
 
 // Define container max-width categories with descriptions
 const containerMaxWidths = {
+  "max-w-lg": { class: "max-w-lg", description: "Used for text content like headline"},
   "max-w-prose": { class: "max-w-prose", description: "Used for reading content." },
   "max-w-7xl": { class: "max-w-7xl", description: "Used for other content." },
 };

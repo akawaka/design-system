@@ -1,19 +1,19 @@
 import PropTypes from "prop-types";
+import Button from "../buttons/Button";
 
-export const BottomNavigation = ({ items, showLabels }) => {
+export const BottomNavigation = ({ items }) => {
   return (
-    <nav className="fixed bottom-0 w-full bg-white border-t border-gray-200 shadow-md">
-      <ul className="flex justify-around py-2">
+    <nav className="fixed bottom-0 left-0 w-screen bg-white border-t shadow-md border-stone-300">
+      <ul className="flex justify-around divide-x divide-stone-300">
         {items.map((item, index) => (
-          <li key={index} className="flex flex-col items-center">
-            <button
-              type="button"
-              className="flex flex-col items-center focus:outline-none group focus:text-blue-500"
+          <li key={index} className="flex flex-col items-center w-full">
+            <Button
+              variant="icon"
               onClick={item.onClick}
+              className="w-full py-4 group"
             >
-              <item.icon className="w-6 h-6 text-gray-700 transition duration-300 ease-out group-hover:text-blue-400 group-focus:text-blue-500" />
-              {showLabels && <span className="mt-1 text-xs text-gray-700 transition duration-300 ease-out group-hover:text-blue-400 group-focus:text-blue-500">{item.label}</span>}
-            </button>
+              <item.icon className="w-6 h-6 transition duration-300 ease-out text-stone-900 group-hover:text-stone-700 group-focus:text-stone-900" />
+            </Button>
           </li>
         ))}
       </ul>
@@ -25,15 +25,9 @@ BottomNavigation.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       icon: PropTypes.elementType.isRequired,
-      label: PropTypes.string,
       onClick: PropTypes.func.isRequired,
     })
   ).isRequired,
-  showLabels: PropTypes.bool,
-};
-
-BottomNavigation.defaultProps = {
-  showLabels: false,
 };
 
 export default BottomNavigation;

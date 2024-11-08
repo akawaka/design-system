@@ -35,7 +35,7 @@ const accentColors = {
 };
 
 const gradientColors = {
-  "from-[#ffc0b8] to-[#ffa454] via-[#ffaf88]": { class: "bg-gradient-to-r from-[#ffc0b8] to-[#ffa454] via-[#ffaf88] bg-[linear-gradient(145deg,var(--tw-gradient-stops))] from-[28%] via-[70%]", description: "Decorative or highlight background gradient." },
+  "from-[#ffc0b8] to-[#ffa454] via-[#ffaf88]": { class: "bg-gradient-to-r from-[#fff1be] to-[#b060ff] via-[#ee87cb] bg-[linear-gradient(145deg,var(--tw-gradient-stops))] from-[28%] via-[70%]", description: "Decorative or highlight background gradient." },
 };
 
 // Updated ColorTemplate to display name and description
