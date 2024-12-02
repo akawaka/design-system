@@ -57,6 +57,4 @@ Button.propTypes = {
   children: PropTypes.node,
 };
 
-Button.defaultProps = {
-  variant: "primary",
-};
+export default Button;
