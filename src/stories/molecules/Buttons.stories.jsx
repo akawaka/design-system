@@ -45,20 +45,34 @@ ButtonTemplate.propTypes = {
   icon: PropTypes.node,
 };
 
-// Render all button variants with descriptions
-export const AllButtons = {
-  render: () => (
-    <div className="max-w-5xl mx-auto">
-      <div className="flex flex-wrap space-x-4 w-fit">
-        {Object.keys(buttonVariants).map((variantKey) => (
-          <ButtonTemplate
-            key={variantKey}
-            variant={variantKey}
-            label="Button"
-          />
-        ))}
-      </div>
-    </div>
-  ),
+
+export const PrimaryButton = {
+  args: {
+    variant: "primary",
+    label: "Button",
+  },
+  render: (args) => <ButtonTemplate {...args} />,
 };
 
+export const SecondaryButton = {
+  args: {
+    variant: "secondary",
+    label: "Button",
+  },
+  render: (args) => <ButtonTemplate {...args} />,
+};
+
+export const TertiaryButton = {
+  args: {
+    variant: "tertiary",
+    label: "Button",
+  },
+  render: (args) => <ButtonTemplate {...args} />,
+};
+
+export const IconButton = {
+  args: {
+    variant: "icon",
+  },
+  render: (args) => <ButtonTemplate {...args} />,
+};

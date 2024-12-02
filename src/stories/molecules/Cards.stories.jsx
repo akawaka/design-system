@@ -6,7 +6,10 @@ export default {
   tags: ["autodocs"],
   argTypes: {
     backgroundColor: {
-      control: "color",
+      control: {
+        type: "select",
+        options: ["bg-white", "bg-stone-900"],
+      },
     },
     children: {
       control: "text",
@@ -14,42 +17,43 @@ export default {
   },
 };
 
-// Define card background colors with descriptions
-const cardBackgroundColors = {
-  "bg-white": { description: "Default background color." },
-  "bg-stone-900": { description: "Darkest stone background color." },
-};
-
-// Updated CardTemplate to display name and description
+// Template for a single card story
 const CardTemplate = ({ backgroundColor, children }) => (
   <div className="flex-grow p-5 m-2 space-y-4 border shadow-md border-stone-300">
     <Card backgroundColor={backgroundColor}>
-      <div className={`p-4 space-y-4 h-80 ${backgroundColor === "bg-stone-900" ? "text-stone-50" : ""}`}>{children}
+      <div
+        className={`p-4 space-y-4 h-80 ${
+          backgroundColor === "bg-stone-900" ? "text-stone-50" : ""
+        }`}
+      >
+        {children || `This is a card with ${backgroundColor} background.`}
         <p className="font-semibold">{backgroundColor}</p>
-        <p className="text-sm">
-          {cardBackgroundColors[backgroundColor].description}
-        </p>
       </div>
     </Card>
+    <code className="block p-2 mt-2 text-sm bg-gray-100 rounded">
+      {`<Card backgroundColor="${backgroundColor}">...</Card>`}
+    </code>
   </div>
 );
 
 CardTemplate.propTypes = {
   backgroundColor: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired,
+  children: PropTypes.string,
 };
 
-// Render all card background colors with descriptions
-export const AllCards = {
-  render: () => (
-    <div className="mx-auto max-w-7xl">
-      <div className="flex flex-wrap gap-x-4 w-fit">
-        {Object.keys(cardBackgroundColors).map((colorKey) => (
-          <CardTemplate key={colorKey} backgroundColor={colorKey}>
-            This is a card with {colorKey} background.
-          </CardTemplate>
-        ))}
-      </div>
-    </div>
-  ),
+// Individual stories for each card
+export const WhiteCard = {
+  args: {
+    backgroundColor: "bg-white",
+    children: "This is a card with a white background.",
+  },
+  render: (args) => <CardTemplate {...args} />,
+};
+
+export const BlackCard = {
+  args: {
+    backgroundColor: "bg-stone-900",
+    children: "This is a card with a black background.",
+  },
+  render: (args) => <CardTemplate {...args} />,
 };

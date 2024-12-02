@@ -3,11 +3,6 @@ import PropTypes from "prop-types";
 export default {
   title: "Design System/Atoms/Transitions",
   tags: ["autodocs"],
-  argTypes: {
-    transition: {
-      control: "text",
-    },
-  },
 };
 
 // Define transition categories with descriptions

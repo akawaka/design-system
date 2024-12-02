@@ -12,21 +12,21 @@ const Footer = () => {
           <div className="flex flex-col items-start mb-4 md:mb-0">
             <img src={logo} alt="Company Logo" className="w-48 h-auto mb-4" />
             <div className="flex space-x-2">
-              <Button variant="icon" className="text-stone-300 hover:text-white ">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="icon">
                   <HomeIcon className="w-5 h-5" />
-                </a>
               </Button>
-              <Button variant="icon" className="text-stone-300 hover:text-white ">
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <Button variant="icon">
                   <UserIcon className="w-5 h-5" />
-                </a>
-              </Button>
-              <Button variant="icon" className="text-stone-300 hover:text-white ">
+                </Button>
+              </a>
                 <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="icon">
                   <EnvelopeIcon className="w-5 h-5" />
-                </a>
               </Button>
+                </a>
             </div>
           </div>
           <div className="flex mt-8 space-x-8">

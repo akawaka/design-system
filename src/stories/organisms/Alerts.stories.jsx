@@ -17,14 +17,26 @@ const meta = {
     },
     title: { control: "text", description: "Title of the alert" },
     description: { control: "text", description: "Description of the alert" },
-    dismissible: { control: "boolean", description: "Whether the alert is dismissible" },
-    autoDismissTime: { control: "number", description: "Time in milliseconds to auto dismiss the alert" },
+    dismissible: {
+      control: "boolean",
+      description: "Whether the alert is dismissible",
+    },
+    autoDismissTime: {
+      control: "number",
+      description: "Time in milliseconds to auto dismiss the alert",
+    },
   },
 };
 
 export default meta;
 
-const AlertTemplate = ({ type, title, description, dismissible, autoDismissTime }) => {
+const AlertTemplate = ({
+  type,
+  title,
+  description,
+  dismissible,
+  autoDismissTime,
+}) => {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleDismiss = () => {
@@ -55,51 +67,62 @@ AlertTemplate.propTypes = {
   autoDismissTime: PropTypes.number,
 };
 
-export const SuccessAlert = () => (
-  <AlertTemplate
-    type="success"
-    title="Success Alert"
-    description="This is a success alert."
-    dismissible={true}
-    autoDismissTme={5000}
-  />
-);
+// Default args for controls
+const defaultArgs = {
+  type: "success",
+  title: "Success Alert",
+  description: "This is a success alert.",
+  dismissible: true,
+  autoDismissTime: 5000,
+};
 
-export const ErrorAlert = () => (
-  <AlertTemplate
-    type="error"
-    title="Error Alert"
-    description="This is an error alert."
-    dismissible={true}
-    autoDismissTime={5000}
-  />
-);
+// Story with controls
+export const DefaultAlert = {
+  args: { ...defaultArgs },
+  render: (args) => <AlertTemplate {...args} />,
+};
 
-export const WarningAlert = () => (
-  <AlertTemplate
-    type="warning"
-    title="Warning Alert"
-    description="This is a warning alert."
-    dismissible={true}
-    autoDismissTime={5000}
-  />
-);
+// Specific alert stories
+export const SuccessAlert = {
+  args: { ...defaultArgs, type: "success" },
+  render: (args) => <AlertTemplate {...args} />,
+};
 
-export const InfoAlert = () => (
-  <AlertTemplate
-    type="info"
-    title="Info Alert"
-    description="This is an info alert."
-    dismissible={true}
-    autoDismissTime={5000}
-  />
-);
+export const ErrorAlert = {
+  args: {
+    ...defaultArgs,
+    type: "error",
+    title: "Error Alert",
+    description: "This is an error alert.",
+  },
+  render: (args) => <AlertTemplate {...args} />,
+};
 
-export const NoAutoDismissAlert = () => (
-  <AlertTemplate
-    type="success"
-    title="Success Alert"
-    description="This is a NO AUTO DISMISS alert."
-    dismissible={true}
-  />
-);
+export const WarningAlert = {
+  args: {
+    ...defaultArgs,
+    type: "warning",
+    title: "Warning Alert",
+    description: "This is a warning alert.",
+  },
+  render: (args) => <AlertTemplate {...args} />,
+};
+
+export const InfoAlert = {
+  args: {
+    ...defaultArgs,
+    type: "info",
+    title: "Info Alert",
+    description: "This is an info alert.",
+  },
+  render: (args) => <AlertTemplate {...args} />,
+};
+
+export const NoAutoDismissAlert = {
+  args: {
+    ...defaultArgs,
+    autoDismissTime: undefined,
+    title: "Persistent Alert",
+  },
+  render: (args) => <AlertTemplate {...args} />,
+};

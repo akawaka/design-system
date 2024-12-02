@@ -3,11 +3,6 @@ import PropTypes from "prop-types";
 export default {
   title: "Design System/Atoms/Containers",
   tags: ["autodocs"],
-  argTypes: {
-    maxWidth: {
-      control: "text",
-    },
-  },
 };
 
 // Define container max-width categories with descriptions

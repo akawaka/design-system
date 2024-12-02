@@ -3,11 +3,6 @@ import PropTypes from "prop-types";
 export default {
   title: "Design System/Atoms/Spacing",
   tags: ["autodocs"],
-  argTypes: {
-    padding: {
-      control: "text",
-    },
-  },
 };
 
 // Define padding categories with descriptions

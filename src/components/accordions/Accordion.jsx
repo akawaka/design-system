@@ -1,14 +1,23 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import clsx from "clsx";
 import Heading from "../typography/Heading";
 
 export function Accordion({ title, children, initialOpen }) {
   const [isOpen, setIsOpen] = useState(initialOpen);
+  const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef(null);
 
+  useEffect(() => {
+    // Set content height on mount or when children change
+    if (contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight);
+    }
+  }, [children]);
+
   const toggleAccordion = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prevState) => !prevState);
   };
 
   return (
@@ -16,28 +25,30 @@ export function Accordion({ title, children, initialOpen }) {
       <div>
         <button
           onClick={toggleAccordion}
-          className="flex items-center justify-between py-4 w-96 focus:outline-none"
+          className="flex items-center justify-between w-full py-4 focus:outline-none"
+          aria-expanded={isOpen}
+          aria-controls="accordion-content"
         >
           <Heading level={3}>{title}</Heading>
           <span
-            className={`transform duration-300 ease-out transition-transform ${
-              isOpen ? "rotate-180" : ""
-            }`}
+            className={clsx(
+              "transform duration-300 ease-out transition-transform",
+              { "rotate-180": isOpen }
+            )}
           >
-            <ChevronDownIcon className="size-6 text-stone-700" />
+            <ChevronDownIcon className="w-6 h-6 text-stone-700" />
           </span>
         </button>
       </div>
       <div
+        id="accordion-content"
         ref={contentRef}
         style={{
-          maxHeight: isOpen
-            ? `${contentRef.current?.scrollHeight}px`
-            : "0px",
+          maxHeight: isOpen ? `${contentHeight}px` : "0px",
         }}
-        className={`overflow-hidden transition-max-height duration-300 ease-out`}
+        className="overflow-hidden duration-300 ease-out transition-max-height"
       >
-        <div className="py-4 text-stone-700">{children}</div>
+        <div className="text-stone-700">{children}</div>
       </div>
     </div>
   );

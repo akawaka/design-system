@@ -8,7 +8,6 @@ const meta = {
   argTypes: {
     imageSrc: { control: "text" },
     imageAlt: { control: "text" },
-    children: { control: "text" },
   },
 };
 

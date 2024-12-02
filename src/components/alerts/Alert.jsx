@@ -1,118 +1,126 @@
 import PropTypes from "prop-types";
-import { XMarkIcon } from "@heroicons/react/20/solid";
 import { useState, useEffect, useCallback } from "react";
-import { ExclamationCircleIcon, ExclamationTriangleIcon, InformationCircleIcon, CheckCircleIcon } from '@heroicons/react/16/solid';
+import {
+  XMarkIcon,
+  ExclamationCircleIcon,
+  ExclamationTriangleIcon,
+  InformationCircleIcon,
+  CheckCircleIcon,
+} from "@heroicons/react/20/solid";
+import clsx from "clsx";
 import { Button } from "../buttons/Button";
 
+const ICONS = {
+  success: CheckCircleIcon,
+  error: ExclamationCircleIcon,
+  warning: ExclamationTriangleIcon,
+  info: InformationCircleIcon,
+};
+
+const STYLES = {
+  alert: {
+    success: "bg-green-100 text-green-800 border-green-500",
+    error: "bg-red-100 text-red-800 border-red-600",
+    warning: "bg-yellow-100 text-yellow-800 border-yellow-500",
+    info: "bg-blue-50 text-blue-800 border-blue-500",
+  },
+  icon: {
+    success: "text-green-800",
+    error: "text-red-800",
+    warning: "text-yellow-800",
+    info: "text-blue-800",
+  },
+  progressBar: {
+    success: "bg-green-500",
+    error: "bg-red-600",
+    warning: "bg-yellow-500",
+    info: "bg-blue-500",
+  },
+};
+
 export const Alert = ({
-  type,
+  type = "info",
   title,
   description,
   listItems,
-  dismissible,
+  dismissible = true,
   onDismiss,
   actions,
   autoDismissTime,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [shouldRender, setShouldRender] = useState(true); // new state for controlling unmounting
   const [progress, setProgress] = useState(100);
 
   const handleDismiss = useCallback(() => {
     setIsVisible(false);
-    setTimeout(() => {
-      setShouldRender(false); // delay unmounting until animation completes
-      if (onDismiss) onDismiss();
-    }, 500); // delay here should match CSS transition duration
+    if (onDismiss) onDismiss();
   }, [onDismiss]);
 
   useEffect(() => {
     setIsVisible(true);
+
     if (autoDismissTime) {
       const interval = setInterval(() => {
-        setProgress((prevProgress) => {
-          if (prevProgress <= 0) {
+        setProgress((prev) => {
+          const next = prev - 100 / (autoDismissTime / 100);
+          if (next <= 0) {
             clearInterval(interval);
             handleDismiss();
             return 0;
           }
-          return prevProgress - (100 / (autoDismissTime / 100));
+          return next;
         });
       }, 100);
+
       return () => clearInterval(interval);
     }
   }, [autoDismissTime, handleDismiss]);
 
-  if (!shouldRender) return null;
-
-  const alertStyles = {
-    success: "bg-green-200 text-green-500 border-green-500",
-    error: "bg-red-200 text-red-600 border-red-600",
-    warning: "bg-yellow-100 text-yellow-500 border-yellow-500",
-    info: "bg-blue-50 text-blue-500 border-blue-500",
-  };
-
-  const iconStyles = {
-    success: "text-green-500",
-    error: "text-red-600",
-    warning: "text-yellow-500",
-    info: "text-blue-500",
-  };
-
-  const progressBarStyles = {
-    success: "bg-green-500",
-    error: "bg-red-600",
-    warning: "bg-yellow-500",
-    info: "bg-blue-500",
-  };
-
-  const icons = {
-    success: CheckCircleIcon,
-    error: ExclamationCircleIcon,
-    warning: ExclamationTriangleIcon,
-    info: InformationCircleIcon,
-  };
-
-  const IconComponent = icons[type];
+  const Icon = ICONS[type];
 
   return (
-    <div className={`fixed z-50 top-8 transition-all duration-1000 ease-out ${isVisible ? 'transform translate-x-0 opacity-100 right-8' : 'transform translate-x-full right-0'}`}>
-      <div className={`p-4 w-96 rounded-md ${alertStyles[type]} border relative overflow-hidden`}>
+    <div
+      role="alert"
+      aria-live="assertive"
+      className={clsx(
+        "fixed z-50 top-8 transition-all duration-500 ease-out",
+        isVisible
+          ? "transform translate-x-0 opacity-100 right-8"
+          : "transform translate-x-full right-0"
+      )}
+    >
+      <div
+        className={clsx(
+          "p-4 w-96 rounded-md border relative overflow-hidden",
+          STYLES.alert[type]
+        )}
+      >
         {autoDismissTime && (
           <div
-            className={`absolute top-0 left-0 h-1 ${progressBarStyles[type]} transition-all duration-100 ease-linear`}
+            className={clsx(
+              "absolute top-0 left-0 h-1 transition-all duration-100 ease-linear",
+              STYLES.progressBar[type]
+            )}
             style={{ width: `${progress}%` }}
           />
         )}
         <div className="flex">
-          <div className="flex-shrink-0">
-            <IconComponent
-              className={`w-5 h-5 ${iconStyles[type]}`}
-              aria-hidden="true"
-            />
-          </div>
+          <Icon className={clsx("w-5 h-5 flex-shrink-0", STYLES.icon[type])} />
           <div className="flex-grow ml-3">
             <h3 className="text-sm font-medium">{title}</h3>
-
-            {description && (
-              <div className="mt-2 text-sm">
-                <p>{description}</p>
-              </div>
-            )}
-
-            {listItems && (
+            {description && <p className="mt-2 text-sm">{description}</p>}
+            {listItems?.length > 0 && (
               <ul className="mt-2 text-sm list-disc list-inside">
-                {listItems.map((item, index) => (
-                  <li key={index}>{item}</li>
+                {listItems.map((item, idx) => (
+                  <li key={idx}>{item}</li>
                 ))}
               </ul>
             )}
-
-            {actions && (
+            {actions?.length > 0 && (
               <div className="flex mt-4 space-x-3">
-                {actions.map((action, index) => (
+                {actions.map((action, idx) => (
                   <Button
-                    key={index}
+                    key={idx}
                     variant="icon"
                     onClick={action.onClick}
                     className="text-blue-600 hover:text-blue-500"
@@ -123,16 +131,14 @@ export const Alert = ({
               </div>
             )}
           </div>
-
           {dismissible && (
-            <div className="absolute top-0 right-0 p-2">
-              <Button onClick={handleDismiss} variant="icon" className="bg-transparent">
-                <XMarkIcon
-                  className={`w-5 h-5 ${iconStyles[type]}`}
-                  aria-hidden="true"
-                />
-              </Button>
-            </div>
+            <Button
+              onClick={handleDismiss}
+              variant="icon"
+              className="absolute top-0 right-0 p-2 bg-transparent"
+            >
+              <XMarkIcon className={clsx("w-5 h-5", STYLES.icon[type])} />
+            </Button>
           )}
         </div>
       </div>
